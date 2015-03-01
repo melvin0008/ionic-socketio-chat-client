@@ -1,0 +1,20 @@
+<ion-view view-title="Login" ng-controller="LoginCntrl as logcntrl">
+<ion-nav-bar class="bar-assertive" align-title="center">
+</ion-nav-bar>
+  <ion-content>
+  <div align="center"><img class="full-image" ng-src="{{logcntrl.logo}}"
+  style="margin-top:25px;width:60%; height:60%;">
+  </div>
+    <form ng-submit="logcntrl.login()">
+      <div class="list list-inset" >
+          <label class="item item-input">
+            <input type="text" placeholder="Username" ng-model="logcntrl.loginData.username">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="logcntrl.loginData.password">
+          </label>
+        <button class="button button-block button-assertive" type="submit">Log in</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
