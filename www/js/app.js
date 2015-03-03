@@ -31,5 +31,5 @@ var app=angular.module('ionic-socketio-chat-client', ['ionic'])
   });
   
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/chat');
 })

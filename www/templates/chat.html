@@ -1,0 +1,23 @@
+
+<ion-view view-title="Socket.IO Chat Demo" ng-controller="ChatController as chatCtrl" class="light-grey">
+ 	<ion-nav-bar class="bar-dark">
+      <ion-nav-buttons side="right">
+        <button class="button button-clear icon ion-android-more-vertical right8" ng-click="repCtrl.openPopover($event)">
+        </button>
+      </ion-nav-buttons>
+ 	</ion-nav-bar>
+ 	<ion-content>
+	 
+  	</ion-content>
+	
+	<div class="list light-grey bottommsg">
+		<div class="item item-input-inset light-grey">
+		  <label  class="item-input-wrapper line-light-grey">
+		    <input class="line-light-grey" type="text"  placeholder="What is your nickname?" ng-model="logcntrl.username"> 
+		  </label>
+			<div class="divsend">
+			    <button class="button button-clear ion-android-send iconsend"></button>
+			</div>
+		</div>
+	</div> 
+ </ion-view>
