@@ -1,4 +1,4 @@
-// Ionic Starter App
+// Ionic Socket IO app
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -17,7 +17,6 @@ var app=angular.module('ionic-socketio-chat-client', ['ionic'])
     }
   });
 })
-
 .config(function($stateProvider, $urlRouterProvider)
 {
 
@@ -25,12 +24,12 @@ var app=angular.module('ionic-socketio-chat-client', ['ionic'])
   .state('chat', {
     url: "/chat",
     templateUrl: "templates/chat.html"
-  }).
+  })
   .state('login', {
     url: "/login",
     templateUrl: "templates/login.html"
-  })
+  });
   
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
-}
+})
