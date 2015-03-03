@@ -37,11 +37,10 @@
 }
 
 .line{
+
 	background-color: #2E2E31;
-	border-bottom-color: #8DB4B4;
-	border-top: none;
-	border-left: none;
-	border-right: none;
+	border:none;
+	border-bottom: 1px solid #8DB4B4;
 }
 
 .top180{
