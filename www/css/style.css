@@ -85,3 +85,18 @@ input.white{
 	width: 75%;
 	margin-right:0px; 
 }
+
+.log{
+	text-align:center;
+	font-size: 13px;
+	color: #8A8A8A;
+	padding: 7px 14px 7px 14px;
+
+}
+.message{
+	padding: 7px 14px 7px 14px;
+    font-size: 16px;
+}
+
+.pad2{
+}

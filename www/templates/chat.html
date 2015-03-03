@@ -7,16 +7,28 @@
       </ion-nav-buttons>
  	</ion-nav-bar>
  	<ion-content>
-	 
+	 <div ng-show="chatCtrl.connected">
+	 	<div class="log pad2">"Welcome to Socket.IO Chat – ";</div>
+	 	<div class="log">{{chatCtrl.number_message}}</div>
+	 </div>
+	 <div>
+        <ul class="messages" >
+        	<li ng-class="{'message':message.style,'log':!message.style}"  ng-repeat="message in chatCtrl.messages">
+        		<span ng-show="message.style" ng-style="{color:message.color}">{{message.username}} : </span>{{message.content}}
+        	</li>
+        </ul>
+ 
+	 </div>
+
   	</ion-content>
 	
 	<div class="list light-grey bottommsg">
 		<div class="item item-input-inset light-grey">
 		  <label  class="item-input-wrapper line-light-grey">
-		    <input class="line-light-grey" type="text"  placeholder="What is your nickname?" ng-model="logcntrl.username"> 
+		    <input class="line-light-grey" type="text"  placeholder="Message" ng-model="chatCtrl.message"> 
 		  </label>
 			<div class="divsend">
-			    <button class="button button-clear ion-android-send iconsend"></button>
+			    <button class="button button-clear ion-android-send iconsend" ng-click="chatCtrl.sendMessage()"></button>
 			</div>
 		</div>
 	</div> 
