@@ -1,19 +1,11 @@
-<ion-view view-title="Login" ng-controller="LoginCntrl as logcntrl">
-<ion-nav-bar class="bar-assertive" align-title="center">
-</ion-nav-bar>
+<ion-view ng-controller="LoginController as logcntrl">
   <ion-content>
-  <div align="center"><img class="full-image" ng-src="{{logcntrl.logo}}"
-  style="margin-top:25px;width:60%; height:60%;">
-  </div>
-    <form ng-submit="logcntrl.login()">
+    <form ng-submit="logcntrl.join()">
       <div class="list list-inset" >
           <label class="item item-input">
-            <input type="text" placeholder="Username" ng-model="logcntrl.loginData.username">
+            <input type="text" placeholder="What is your" ng-model="logcntrl.username">
           </label>
-          <label class="item item-input">
-            <input type="password" placeholder="Password" ng-model="logcntrl.loginData.password">
-          </label>
-        <button class="button button-block button-assertive" type="submit">Log in</button>
+        <button class="button button-block button-dark" type="submit">Join</button>
       </div>
     </form>
   </ion-content>
