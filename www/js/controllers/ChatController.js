@@ -1,5 +1,7 @@
 var chat=app.controller('ChatController',function($stateParams,socket) {
   	var self=this;
+
+  	//Add colors
   	var COLORS = [
 	    '#e21400', '#91580f', '#f8a700', '#f78b00',
 	    '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
@@ -15,7 +17,7 @@ var chat=app.controller('ChatController',function($stateParams,socket) {
   	  socket.emit('add user', $stateParams.nickname);
   	  // On login display welcome message
   	  socket.on('login', function (data) {
-	    //connected flag
+	    //Set the value of connected flag
 	    self.connected = true
 	    self.number_message= message_string(data.numUsers)
 	  	
@@ -26,6 +28,7 @@ var chat=app.controller('ChatController',function($stateParams,socket) {
 	   	addMessageToList(data.username,true,data.message)
 	  });
 
+	  // Whenever the server emits 'user joined', log it in the chat body
 	  socket.on('user joined', function (data) {
 	  	addMessageToList("",false,data.username + " joined")
 	  	addMessageToList("",false,message_string(data.numUsers)) 
@@ -37,6 +40,7 @@ var chat=app.controller('ChatController',function($stateParams,socket) {
 	  });	
   	})
 
+  	//function called when user hits the send button
   	self.sendMessage=function()
   	{
   		socket.emit('new message', self.message)
@@ -61,6 +65,7 @@ var chat=app.controller('ChatController',function($stateParams,socket) {
 	    return COLORS[index];
   	}
 
+  	// Return message string depending on the number of users
   	function message_string(number_of_users)
   	{
   		return number_of_users===1?"there's 1 participant":"there are "+number_of_users+" participants"
