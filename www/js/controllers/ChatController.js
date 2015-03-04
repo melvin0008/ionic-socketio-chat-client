@@ -43,11 +43,13 @@ var chat=app.controller('ChatController',function($stateParams,socket) {
   		addMessageToList($stateParams.nickname,true,self.message)
   	}
 
+  	// Display message by adding it to the message list
   	function addMessageToList(username,style_type,message){
   		var color= style_type ? getUsernameColor(username) : null
   		self.messages.push({content:message,style:style_type,username:username,color:color})
   	}
 
+  	//Generate color for the same user.
   	function getUsernameColor (username) {
 	    // Compute hash code
 	    var hash = 7;
