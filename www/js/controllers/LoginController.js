@@ -3,9 +3,12 @@ app.controller('LoginController',function($state) {
 
 	self.join=function()
 	{
-		var nickname=self.nickname
 		//sanitize the nickname
-		$state.go('chat',{nickname:nickname})
+		var nickname=$sanitize(self.nickname)
+		if(nickname)
+		{
+			$state.go('chat',{nickname:nickname})
+		}
 	}
 	  
 	

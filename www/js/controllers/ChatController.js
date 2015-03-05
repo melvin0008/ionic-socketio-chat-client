@@ -1,4 +1,4 @@
-var chat=app.controller('ChatController',function($stateParams,socket) {
+var chat=app.controller('ChatController',function($stateParams,socket,$sanitize) {
   	var self=this;
 
   	//Add colors
@@ -50,8 +50,9 @@ var chat=app.controller('ChatController',function($stateParams,socket) {
 
   	// Display message by adding it to the message list
   	function addMessageToList(username,style_type,message){
+  		username=$sanitize(username)
   		var color= style_type ? getUsernameColor(username) : null
-  		self.messages.push({content:message,style:style_type,username:username,color:color})
+  		self.messages.push({content:$sanitize(message),style:style_type,username:username,color:color})
   	}
 
   	//Generate color for the same user.
