@@ -45,6 +45,7 @@ var chat=app.controller('ChatController',function($stateParams,socket) {
   	{
   		socket.emit('new message', self.message)
   		addMessageToList($stateParams.nickname,true,self.message)
+  		self.message=""
   	}
 
   	// Display message by adding it to the message list
