@@ -13,9 +13,11 @@
 	 </div>
 	 <div>
         <ul class="messages" >
-        	<li ng-class="{'message':message.style,'log':!message.style}"  ng-repeat="message in chatCtrl.messages">
+        	<li ng-class="{'message':message.style,'log':!message.style,'focus':$last}"  ng-repeat="message in chatCtrl.messages">
         		<span ng-show="message.style" ng-style="{color:message.color}">{{message.username}} : </span>{{message.content}}
+        		<a id="bottom"></a>
         	</li>
+
         </ul>
  
 	 </div>
