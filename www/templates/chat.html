@@ -6,22 +6,19 @@
         </button>
       </ion-nav-buttons>
  	</ion-nav-bar>
- 	<ion-content>
+ 	<ion-content has-bouncing="true">
 	 <div ng-show="chatCtrl.connected">
 	 	<div class="log pad2">"Welcome to Socket.IO Chat – ";</div>
 	 	<div class="log">{{chatCtrl.number_message}}</div>
 	 </div>
 	 <div>
         <ul class="messages" >
-        	<li ng-class="{'message':message.style,'log':!message.style,'focus':$last}"  ng-repeat="message in chatCtrl.messages">
+        	<li ng-class="{'message':message.style,'log':!message.style}"  ng-repeat="message in chatCtrl.messages">
         		<span ng-show="message.style" ng-style="{color:message.color}">{{message.username}} : </span>{{message.content}}
-        		<a id="bottom"></a>
         	</li>
 
         </ul>
- 
 	 </div>
-
   	</ion-content>
 	
 	<div class="list light-grey bottommsg">
