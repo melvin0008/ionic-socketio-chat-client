@@ -1,4 +1,3 @@
-
 <ion-view view-title="Socket.IO Chat Demo" ng-controller="ChatController as chatCtrl" class="light-grey">
  	<ion-nav-bar class="bar-dark">
       <ion-nav-buttons side="right">
@@ -7,30 +6,26 @@
       </ion-nav-buttons>
  	</ion-nav-bar>
  	<ion-content has-bouncing="true" class="stat">
-	 <div ng-show="chatCtrl.connected">
+	  <div ng-show="chatCtrl.connected">
 	 	<div class="log pad2">"Welcome to Socket.IO Chat – ";</div>
 	 	<div class="log">{{chatCtrl.number_message}}</div>
-	 </div>
-	 <div>
-        <ul class="messages" >
+	  </div>
+	  <div>
+        <ul>
         	<li ng-class="{'message':message.style,'log':!message.style}"  ng-repeat="message in chatCtrl.messages" >
-
         		<span ng-show="message.style" ng-style="{color:message.color}" >{{message.username}} : </span >{{message.content}}
         	</li>
-
         </ul>
-	 </div>
-
-  	</ion-content>
+	  </div>
+	</ion-content>
 	<div class="list light-grey bottommsg">
 		<div class="item item-input-inset light-grey">
 		  <label  class="item-input-wrapper line-light-grey">
 		    <input class="line-light-grey" type="text"  placeholder="Message" ng-model="chatCtrl.message"> 
 		  </label>
-			<div class="divsend">
+		  <div class="divsend">
 			    <button class="button button-clear ion-android-send iconsend" ng-click="chatCtrl.sendMessage()"></button>
-			</div>
+		  </div>
 		</div>
 	</div> 	
-
  </ion-view>
