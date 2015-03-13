@@ -1,6 +1,6 @@
-var chat=app.controller('ChatController',function($stateParams,socket,$sanitize) {
+var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,$ionicScrollDelegate) {
   	var self=this;
-
+  	self.autofocus=true
   	//Add colors
   	var COLORS = [
 	    '#e21400', '#91580f', '#f8a700', '#f78b00',
@@ -53,6 +53,7 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize)
   		username=$sanitize(username)
   		var color= style_type ? getUsernameColor(username) : null
   		self.messages.push({content:$sanitize(message),style:style_type,username:username,color:color})
+  		$ionicScrollDelegate.scrollBottom();
   	}
 
   	//Generate color for the same user.
