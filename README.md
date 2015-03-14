@@ -14,6 +14,8 @@ Enjoy!.
 
 Feel free to contribute.
 
+Demo:   
+![demo](../master/image/demo.gif?raw=true)
 
 Tutorial Coming Soon. 
 
