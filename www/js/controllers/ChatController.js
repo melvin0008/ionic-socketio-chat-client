@@ -15,6 +15,7 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
 
   	 //Add user
   	  socket.emit('add user', $stateParams.nickname);
+
   	  // On login display welcome message
   	  socket.on('login', function (data) {
 	    //Set the value of connected flag
@@ -36,7 +37,19 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
 
 	  // Whenever the server emits 'user left', log it in the chat body
 	  socket.on('user left', function (data) {
-	    addMessageToList(data.username,false,self.message)
+	    addMessageToList("",false,data.username+" left")
+	    addMessageToList("",false,message_string(data.numUsers))
+	  });
+
+	  //Whenever the server emits 'typing', show the typing message
+	  socket.on('typing', function (data) {
+	    //addChatTyping(data);
+	  });
+
+	  // Whenever the server emits 'stop typing', kill the typing message
+	  socket.on('stop typing', function (data) {
+	    console.log(data)
+	    // removeChatTyping(data);
 	  });	
   	})
 
