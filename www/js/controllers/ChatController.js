@@ -43,13 +43,12 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
 
 	  //Whenever the server emits 'typing', show the typing message
 	  socket.on('typing', function (data) {
-	    //addChatTyping(data);
+	    addChatTyping(data);
 	  });
 
 	  // Whenever the server emits 'stop typing', kill the typing message
 	  socket.on('stop typing', function (data) {
-	    console.log(data)
-	    // removeChatTyping(data);
+	    removeChatTyping(data.username);
 	  });	
   	})
 
@@ -64,6 +63,7 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
   	// Display message by adding it to the message list
   	function addMessageToList(username,style_type,message){
   		username=$sanitize(username)
+  		removeChatTyping(username)
   		var color= style_type ? getUsernameColor(username) : null
   		self.messages.push({content:$sanitize(message),style:style_type,username:username,color:color})
   		$ionicScrollDelegate.scrollBottom();
@@ -80,6 +80,16 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
 	    var index = Math.abs(hash % COLORS.length);
 	    return COLORS[index];
   	}
+
+	// Adds the visual chat typing message
+	function addChatTyping (data) {
+	    addMessageToList(data.username,true," is typing");
+	}
+
+	// Removes the visual chat typing message
+	function removeChatTyping (username) {
+	  	self.messages=self.messages.filter(function(element){return element.username!=username || element.content!=" is typing"})
+	}
 
   	// Return message string depending on the number of users
   	function message_string(number_of_users)
