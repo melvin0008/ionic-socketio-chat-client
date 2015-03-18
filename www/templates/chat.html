@@ -21,7 +21,7 @@
 	<div class="list light-grey bottommsg">
 		<div class="item item-input-inset light-grey">
 		  <label  class="item-input-wrapper line-light-grey">
-		    <input class="line-light-grey" type="text"  placeholder="Message" ng-model="chatCtrl.message"> 
+		    <input class="line-light-grey" ng-change="chatCtrl.updateTyping()" type="text"  placeholder="Message" ng-enter="chatCtrl.sendMessage()" ng-model="chatCtrl.message"> 
 		  </label>
 		  <div class="divsend">
 			    <button class="button button-clear ion-android-send iconsend" ng-click="chatCtrl.sendMessage()"></button>
