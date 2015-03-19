@@ -1,8 +1,10 @@
 var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,$ionicScrollDelegate,$timeout) {
+  	
   	var self=this;
   	var typing = false;
   	var lastTypingTime;
   	var TYPING_TIMER_LENGTH = 400;
+  	
   	//Add colors
   	var COLORS = [
 	    '#e21400', '#91580f', '#f8a700', '#f78b00',
@@ -14,8 +16,10 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
 	self.messages=[]
 
   	socket.on('connect',function(){
-  		connected=true
-  	 //Add user
+  	  
+  	  connected = true
+  	 
+  	  //Add user
   	  socket.emit('add user', $stateParams.nickname);
 
   	  // On login display welcome message
@@ -59,32 +63,19 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
   		socket.emit('new message', self.message)
   		addMessageToList($stateParams.nickname,true,self.message)
   		socket.emit('stop typing');
-  		self.message=""
+  		self.message = ""
   	}
-  	self.updateTyping=function(){
-  		if(connected){
-  			if (!typing) {
-		        typing = true;
-		        socket.emit('typing');
-		    }
-  		}
-  		lastTypingTime = (new Date()).getTime();
-  		$timeout(function () {
-	        var typingTimer = (new Date()).getTime();
-	        var timeDiff = typingTimer - lastTypingTime;
-	        if (timeDiff >= TYPING_TIMER_LENGTH && typing) {
-	          socket.emit('stop typing');
-	          typing = false;
-	        }
-      	}, TYPING_TIMER_LENGTH)
 
+  	//function called on Input Change
+  	self.updateTyping=function(){
+  		sendUpdateTyping()
   	}
 
   	// Display message by adding it to the message list
   	function addMessageToList(username,style_type,message){
-  		username=$sanitize(username)
+  		username = $sanitize(username)
   		removeChatTyping(username)
-  		var color= style_type ? getUsernameColor(username) : null
+  		var color = style_type ? getUsernameColor(username) : null
   		self.messages.push({content:$sanitize(message),style:style_type,username:username,color:color})
   		$ionicScrollDelegate.scrollBottom();
   	}
@@ -101,6 +92,25 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
 	    return COLORS[index];
   	}
 
+  	// Updates the typing event
+  	function sendUpdateTyping(){
+  		if(connected){
+  			if (!typing) {
+		        typing = true;
+		        socket.emit('typing');
+		    }
+  		}
+  		lastTypingTime = (new Date()).getTime();
+  		$timeout(function () {
+	        var typingTimer = (new Date()).getTime();
+	        var timeDiff = typingTimer - lastTypingTime;
+	        if (timeDiff >= TYPING_TIMER_LENGTH && typing) {
+	          socket.emit('stop typing');
+	          typing = false;
+	        }
+      	}, TYPING_TIMER_LENGTH)
+  	}
+
 	// Adds the visual chat typing message
 	function addChatTyping (data) {
 	    addMessageToList(data.username,true," is typing");
@@ -108,13 +118,13 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
 
 	// Removes the visual chat typing message
 	function removeChatTyping (username) {
-	  	self.messages=self.messages.filter(function(element){return element.username!=username || element.content!=" is typing"})
+	  	self.messages = self.messages.filter(function(element){return element.username != username || element.content != " is typing"})
 	}
 
   	// Return message string depending on the number of users
   	function message_string(number_of_users)
   	{
-  		return number_of_users===1?"there's 1 participant":"there are "+number_of_users+" participants"
+  		return number_of_users === 1 ? "there's 1 participant":"there are " + number_of_users + " participants"
   	}
 });
 
