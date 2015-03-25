@@ -67,7 +67,7 @@ input.white{
 
 .bottommsg{
 	position: fixed;
-	bottom:4px;
+	bottom:0px;
 	width: 100%;
 }
 
@@ -75,8 +75,9 @@ input.white{
 	background-color:#D5D5D9;
 	margin-left: 7px;
 }
+
 .iconsend{
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .width70{
@@ -91,11 +92,16 @@ input.white{
 	padding: 7px 14px 7px 14px;
 
 }
+
 .message{
 	padding: 7px 14px 7px 14px;
     font-size: 16px;
 }
 
-.stat{
-	height: 81%;
+.nopadtop{
+padding-top: 0px;
+}
+
+.content{
+	bottom:10px;
 }

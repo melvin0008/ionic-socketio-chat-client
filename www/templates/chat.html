@@ -5,7 +5,7 @@
         </button>
       </ion-nav-buttons>
  	</ion-nav-bar>
- 	<ion-content has-bouncing="true" class="stat">
+ 	<ion-content has-bouncing="true" class="content">
 	  <div ng-show="chatCtrl.connected">
 	 	<div class="log pad2">"Welcome to Socket.IO Chat – ";</div>
 	 	<div class="log">{{chatCtrl.number_message}}</div>
@@ -20,7 +20,7 @@
 	</ion-content>
 	<div class="list light-grey bottommsg">
 		<div class="item item-input-inset light-grey">
-		  <label  class="item-input-wrapper line-light-grey">
+		  <label  class="item-input-wrapper line-light-grey nopadtop">
 		    <input class="line-light-grey" ng-change="chatCtrl.updateTyping()" type="text"  placeholder="Message" ng-enter="chatCtrl.sendMessage()" ng-model="chatCtrl.message"> 
 		  </label>
 		  <div class="divsend">
