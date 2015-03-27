@@ -77,7 +77,7 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
   		removeChatTyping(username)
   		var color = style_type ? getUsernameColor(username) : null
   		self.messages.push({content:$sanitize(message),style:style_type,username:username,color:color})
-  		// $ionicScrollDelegate.scrollBottom();
+  		$ionicScrollDelegate.scrollBottom();
   	}
 
   	//Generate color for the same user.
