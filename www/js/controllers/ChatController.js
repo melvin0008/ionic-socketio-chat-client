@@ -32,7 +32,10 @@ var chat=app.controller('ChatController',function($stateParams,socket,$sanitize,
 
 	  // Whenever the server emits 'new message', update the chat body
 	  socket.on('new message', function (data) {
-	   	addMessageToList(data.username,true,data.message)
+	  	if(data.message&&data.username)
+	  	{
+	   		addMessageToList(data.username,true,data.message)
+	  	}
 	  });
 
 	  // Whenever the server emits 'user joined', log it in the chat body
