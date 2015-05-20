@@ -12,9 +12,10 @@ Instructions:
 4. Run ionic build: ionic run android or ionic run ios      
 
 Demo:   
-| Android             |  iOS |
-| ------------------------- | ------------------------- |
-![demo](../master/image/demo.gif?raw=true)  |  ![demo](../master/image/ios.gif?raw=true)
+
+|   Android             |  iOS |    
+| :-------------------------: | :-------------------------: |     
+| ![demo](../master/image/demo.gif?raw=true)  |  ![demo](../master/image/ios.gif?raw=true)  |
 
 
 Enjoy!.    
