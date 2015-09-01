@@ -9,9 +9,9 @@ Instructions:
 1. Clone this repository.    
 2. Install ionic : ```sh npm install -g cordova ionic```    
 3. Add platform : ```sh ionic add platform android``` or ```sh ionic add platform ios```    
-4. As we are using external resources add whitelist plugin : ```sh cordova plugin add cordova-plugin-whitelist```
-5. Also add the keyboard plugin : ```sh cordova plugin add com.ionic.keyboard```
-5. Run ionic build: ```sh ionic run android``` or ```sh ionic run ios```      
+4. As we are using external resources add whitelist plugin : ```sh cordova plugin add cordova-plugin-whitelist``` 
+5. Also add the keyboard plugin : ```sh cordova plugin add com.ionic.keyboard```   
+6. Run ionic build: ```sh ionic run android``` or ```sh ionic run ios```      
 
 Demo:   
 
