@@ -7,9 +7,11 @@ Connected to [chat.socket.io](http://socket.io/demos/chat/) using this app.
 
 Instructions:   
 1. Clone this repository.    
-2. Install ionic : npm install -g cordova ionic    
-3. Add platform : ionic add platform android or ionic add platform ios    
-4. Run ionic build: ionic run android or ionic run ios      
+2. Install ionic : ```sh npm install -g cordova ionic```    
+3. Add platform : ```sh ionic add platform android``` or ```sh ionic add platform ios```    
+4. As we are using external resources add whitelist plugin : ```sh cordova plugin add cordova-plugin-whitelist```
+5. Also add the keyboard plugin : ```sh cordova plugin add com.ionic.keyboard```
+5. Run ionic build: ```sh ionic run android``` or ```sh ionic run ios```      
 
 Demo:   
 
